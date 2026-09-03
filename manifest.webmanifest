@@ -1,0 +1,11 @@
+{
+  "name": "Daniyar AI",
+  "short_name": "Daniyar",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070a12",
+  "theme_color": "#070a12",
+  "dir": "rtl",
+  "lang": "fa",
+  "icons": []
+}

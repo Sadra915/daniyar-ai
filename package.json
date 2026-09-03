@@ -1,0 +1,23 @@
+{
+  "name": "daniyar-ai",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Daniyar AI — a polished AI workspace with multi-provider agents, plugins, memory, projects and mobile-first UX.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check agent.js && node --check public/app.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "adm-zip": "^0.5.14",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mammoth": "^1.8.0",
+    "multer": "^2.0.2",
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5"
+  }
+}

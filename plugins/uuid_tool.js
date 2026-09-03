@@ -1,0 +1,1 @@
+const crypto=require('crypto');module.exports={name:'uuid_tool',description:'تولید شناسه UUID امن.',category:'سیستم',input_schema:{type:'object',properties:{count:{type:'integer',minimum:1,maximum:50}},required:[]},permission:'green',handler:async({count=1})=>Array.from({length:Math.min(50,Math.max(1,count))},()=>crypto.randomUUID()).join('\n')};

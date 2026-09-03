@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070a12">
+<meta name="description" content="Daniyar AI — محیط هوشمند گفتگو، کدنویسی، پروژه و ابزارها">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+<title>دانیار AI — V4</title>
+</head>
+<body data-theme="dark">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-row">
+      <button class="icon-button" id="sidebarToggle" aria-label="منو">☰</button>
+      <div class="brand">
+        <span class="brand-orb">✦</span>
+        <div><strong>دانیار</strong><small>AI WORKSPACE V4</small></div>
+      </div>
+    </div>
+
+    <div class="workspace-pill">
+      <span class="online-dot"></span>
+      <span id="workspaceStatus">Workspace آماده</span>
+    </div>
+
+    <nav class="nav" id="mainNav">
+      <button class="nav-item active" data-view="home"><span class="nav-icon" data-icon="grid"></span><span>داشبورد</span><kbd>H</kbd></button>
+      <button class="nav-item" data-view="chat"><span class="nav-icon" data-icon="spark"></span><span>گفتگو</span><kbd>C</kbd></button>
+      <button class="nav-item" data-view="studio"><span class="nav-icon" data-icon="layout"></span><span>AI Studio</span></button>
+      <button class="nav-item" data-view="projects"><span class="nav-icon" data-icon="folder"></span><span>پروژه‌ها</span></button>
+      <button class="nav-item" data-view="files"><span class="nav-icon" data-icon="file"></span><span>فایل‌ها</span></button>
+      <button class="nav-item" data-view="editor"><span class="nav-icon" data-icon="code"></span><span>IDE / Editor</span></button>
+      <button class="nav-item" data-view="memory"><span class="nav-icon" data-icon="brain"></span><span>حافظه</span></button>
+      <button class="nav-item" data-view="plugins"><span class="nav-icon" data-icon="puzzle"></span><span>Plugin Hub</span></button>
+      <button class="nav-item" data-view="tools"><span class="nav-icon" data-icon="tool"></span><span>ابزارها</span></button>
+      <button class="nav-item" data-view="activity"><span class="nav-icon" data-icon="pulse"></span><span>فعالیت</span></button>
+      <button class="nav-item" data-view="system"><span class="nav-icon" data-icon="server"></span><span>سیستم</span></button>
+      <div class="nav-separator"></div>
+      <button class="nav-item" data-view="settings"><span class="nav-icon" data-icon="settings"></span><span>تنظیمات</span></button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="mini-status">
+        <span class="status-ring"></span>
+        <div><strong id="footerProvider">OpenRouter</strong><small id="footerModel">openrouter/free</small></div>
+      </div>
+      <button class="icon-button" id="themeToggle" title="تغییر تم">◐</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-title">
+        <button class="mobile-menu icon-button" id="mobileMenu">☰</button>
+        <div>
+          <small>DANIYAR CONTROL CENTER</small>
+          <strong id="topbarTitle">داشبورد</strong>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="command-button" id="openPalette"><span data-icon="search"></span><span>جستجو و فرمان</span><kbd>⌘K</kbd></button>
+        <button class="icon-button" id="newChatBtn" title="گفتگوی جدید">＋</button>
+        <button class="avatar" id="statusAvatar" title="وضعیت">D</button>
+      </div>
+    </header>
+
+    <main class="content" id="views">
+      <section class="view active" id="view-home">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">INTELLIGENT WORKSPACE</span>
+            <h1>سلام، من <span>دانیار</span> هستم.</h1>
+            <p>یک محیط یکپارچه برای گفتگو، ساختن، کدنویسی، مدیریت پروژه و اجرای ابزارهای واقعی.</p>
+            <div class="hero-actions">
+              <button class="btn primary" data-quick-view="chat"><span data-icon="spark"></span> شروع گفتگو</button>
+              <button class="btn ghost" data-quick-view="studio"><span data-icon="layout"></span> باز کردن Studio</button>
+            </div>
+            <form id="homeForm" class="hero-composer">
+              <textarea id="homeInput" rows="1" placeholder="مثلاً: این پروژه را بررسی و بهینه کن..."></textarea>
+              <button type="submit" class="btn primary" aria-label="ارسال">↗</button>
+            </form>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="orbital">
+              <div class="orbital-center">✦</div>
+              <i class="orbit-chip a">AI</i><i class="orbit-chip b">JS</i><i class="orbit-chip c">⌘</i><i class="orbit-chip d">⌁</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card"><span>Provider</span><strong id="dashProvider">—</strong><small id="dashProviderState">در حال بررسی</small></div>
+          <div class="metric-card"><span>مدل فعال</span><strong id="dashModel">—</strong><small>قابل تعویض</small></div>
+          <div class="metric-card"><span>ابزارهای واقعی</span><strong id="dashTools">—</strong><small>Plugin architecture</small></div>
+          <div class="metric-card"><span>پروژه‌ها</span><strong id="dashProjects">—</strong><small>Local-first</small></div>
+        </div>
+
+        <div class="section-head"><div><small class="eyebrow">POWER TOOLS</small><h2>شروع سریع</h2></div><button class="text-button" data-quick-view="plugins">دیدن همه ابزارها ←</button></div>
+        <div class="command-grid">
+          <button class="command-card accent" data-quick-view="chat"><span class="command-icon" data-icon="spark"></span><div><strong>از ایده تا اجرا</strong><small>یک درخواست بده و دانیار از ابزارها استفاده کند.</small></div><span>→</span></button>
+          <button class="command-card" data-quick-view="editor"><span class="command-icon" data-icon="code"></span><div><strong>Build & Debug</strong><small>فایل، ترمینال، تست و diff در یک Workspace.</small></div><span>→</span></button>
+          <button class="command-card" data-quick-view="plugins"><span class="command-icon" data-icon="puzzle"></span><div><strong>Plugin Hub</strong><small>ابزارهای واقعی را فعال یا خاموش کن.</small></div><span>→</span></button>
+        </div>
+
+        <div class="section-head"><div><small class="eyebrow">RECENT</small><h2>پروژه‌های اخیر</h2></div><button class="text-button" data-quick-view="projects">همه پروژه‌ها ←</button></div>
+        <div class="project-grid" id="recentProjects"></div>
+      </section>
+
+      <section class="view" id="view-chat">
+        <div class="chat-layout">
+          <aside class="context-card">
+            <div class="panel-head"><div><small class="eyebrow">CONTEXT</small><strong>Workspace</strong></div><span class="glow-dot"></span></div>
+            <div class="context-block"><small>پروژه فعال</small><strong id="chatProjectName">بدون پروژه</strong><button class="btn ghost full" data-quick-view="projects">انتخاب پروژه</button></div>
+            <div class="context-block"><small>حافظه</small><strong>Local-first</strong><span class="muted">روی دستگاه نگهداری می‌شود.</span></div>
+            <div class="context-actions">
+              <button data-quick-view="files"><span data-icon="file"></span> فایل</button>
+              <button data-quick-view="editor"><span data-icon="code"></span> IDE</button>
+              <button data-quick-view="activity"><span data-icon="pulse"></span> Activity</button>
+            </div>
+          </aside>
+          <div class="chat-panel">
+            <div class="chat-header"><div><small class="eyebrow">LIVE AGENT</small><strong>گفتگوی هوشمند</strong></div><div class="live-indicator"><span></span> آنلاین</div></div>
+            <div id="chatLog" class="chat-log">
+              <div class="empty-chat"><div class="empty-orb">✦</div><h3>چه چیزی می‌سازیم؟</h3><p>کد بنویس، پروژه بررسی کن، فایل تحلیل کن یا فقط سؤال بپرس.</p></div>
+            </div>
+            <form id="chatForm" class="composer">
+              <button type="button" class="round-tool" id="attachBtn" title="پیوست">＋</button>
+              <input type="file" id="attachInput" hidden>
+              <textarea id="input" rows="1" placeholder="از دانیار بخواه..."></textarea>
+              <button type="button" class="round-tool" id="micBtn" title="ورودی صوتی">◌</button>
+              <button type="submit" class="send-btn" id="sendBtn">ارسال <span>↗</span></button>
+            </form>
+            <div class="composer-meta"><span>Enter برای ارسال · Shift+Enter برای خط جدید</span><span id="chatModelBadge">openrouter/free</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-studio">
+        <div class="page-head"><div><small class="eyebrow">AI STUDIO</small><h1>استودیوی ساخت</h1><p>چت، فایل‌ها و وضعیت Agent کنار هم.</p></div><div class="page-actions"><button class="btn ghost" data-quick-view="files">فایل‌ها</button><button class="btn primary" data-quick-view="editor">IDE</button></div></div>
+        <div class="studio-grid">
+          <div class="glass-panel studio-main"><div class="panel-head"><strong>گفتگو</strong><span class="live-indicator"><span></span> Stream</span></div><div id="studioLog" class="studio-log"><div class="empty-chat compact"><div class="empty-orb">✦</div><p>یک ایده را اینجا اجرا کن.</p></div></div><form id="studioForm" class="studio-composer"><textarea id="studioInput" rows="2" placeholder="مثلاً: یک داشبورد React مدرن بساز..."></textarea><button type="submit" class="btn primary">اجرا ↗</button></form></div>
+          <div class="glass-panel"><div class="panel-head"><strong>Recent Files</strong><span data-icon="file"></span></div><div id="studioFiles" class="studio-files"></div></div>
+          <div class="glass-panel agent-card"><div class="panel-head"><strong>Agent Core</strong><span class="glow-dot"></span></div><div class="agent-visual"><div class="agent-core">✦</div><div class="agent-ring r1"></div><div class="agent-ring r2"></div><div class="agent-ring r3"></div></div><div class="agent-stats"><div><span>Tools</span><strong id="studioToolCount">—</strong></div><div><span>Memory</span><strong>ON</strong></div><div><span>Mode</span><strong>Agentic</strong></div></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-projects">
+        <div class="page-head"><div><small class="eyebrow">WORKSPACE</small><h1>پروژه‌ها</h1><p>پروژه‌ها و تصمیم‌های ماندگار دانیار.</p></div><form id="newProjectForm" class="inline-form"><input id="newProjectName" placeholder="نام پروژه جدید"><button class="btn primary">ساخت</button></form></div>
+        <div class="project-grid large" id="projectsList"></div>
+      </section>
+
+      <section class="view" id="view-files">
+        <div class="page-head"><div><small class="eyebrow">WORKSPACE FILES</small><h1>فایل‌ها</h1><p>مدیریت فایل‌های Workspace با Drag & Drop.</p></div><form id="uploadForm" class="upload-box"><input type="file" id="fileInput"><button class="btn primary">آپلود</button></form></div>
+        <div class="file-toolbar"><span id="fileCount">۰ فایل</span><span class="muted">پوشه workspace</span></div>
+        <div class="file-list" id="fileList"></div>
+      </section>
+
+      <section class="view" id="view-memory">
+        <div class="page-head"><div><small class="eyebrow">MEMORY ENGINE</small><h1>حافظه</h1><p>حافظه کاربر، پروژه، یادداشت و کارها.</p></div></div>
+        <div class="tabs"><button class="tab active" data-tab="user">کاربر</button><button class="tab" data-tab="project">پروژه</button><button class="tab" data-tab="notes">یادداشت</button><button class="tab" data-tab="todos">کارها</button></div>
+        <div class="tab-panel" id="tab-user"><form id="userFactForm" class="inline-form"><input id="userFactInput" placeholder="یک واقعیت پایدار..."><button class="btn primary">افزودن</button></form><ul class="memory-list" id="userMemoryList"></ul></div>
+        <div class="tab-panel hidden" id="tab-project"><select id="projectMemorySelect" class="select"></select><div id="projectMemoryView"></div></div>
+        <div class="tab-panel hidden" id="tab-notes"><ul class="memory-list" id="notesList"></ul></div>
+        <div class="tab-panel hidden" id="tab-todos"><ul class="memory-list" id="todosList"></ul></div>
+      </section>
+
+      <section class="view" id="view-plugins">
+        <div class="page-head"><div><small class="eyebrow">PLUGIN HUB</small><h1>مرکز قابلیت‌ها</h1><p>معماری پلاگین به‌صورت drop-in است؛ هر ماژول واقعی از پوشه plugins قابل کشف است.</p></div><button class="btn ghost" id="reloadPluginsBtn">↻ بروزرسانی</button></div>
+        <div class="plugin-overview"><div><strong id="pluginCount">۰</strong><span>ابزار فعال</span></div><div><strong id="disabledCount">۰</strong><span>غیرفعال</span></div><div><strong id="failedCount">۰</strong><span>خطادار</span></div><div><strong>∞</strong><span>ظرفیت معماری</span></div></div>
+        <div class="plugin-controls"><input id="pluginSearch" placeholder="جستجوی ابزار..."><div id="pluginFilters" class="filter-row"></div></div>
+        <div class="plugin-grid" id="pluginGrid"></div>
+      </section>
+
+      <section class="view" id="view-tools"><div class="page-head"><div><small class="eyebrow">TOOLBOX</small><h1>ابزارهای واقعی</h1><p>همان ابزارهایی که Agent می‌تواند واقعاً اجرا کند.</p></div></div><div class="plugin-grid" id="toolsList"></div></section>
+
+      <section class="view" id="view-system"><div class="page-head"><div><small class="eyebrow">SYSTEM</small><h1>وضعیت سیستم</h1><p>وضعیت Provider، Node و سرویس‌های محلی.</p></div><button class="btn ghost" id="refreshSystemBtn">↻ بروزرسانی</button></div><div class="system-grid"><div class="system-card"><small>Node</small><strong id="sysNode">—</strong></div><div class="system-card"><small>Platform</small><strong id="sysPlatform">—</strong></div><div class="system-card"><small>Uptime</small><strong id="sysUptime">—</strong></div><div class="system-card"><small>RAM</small><strong id="sysRam">—</strong></div></div><div class="glass-panel service-panel"><div class="panel-head"><strong>سرویس‌ها</strong></div><div id="serviceHealth"></div></div></section>
+
+      <section class="view" id="view-activity"><div class="page-head"><div><small class="eyebrow">ACTIVITY</small><h1>ردپای Agent</h1><p>ابزارها و عملیات اخیر.</p></div></div><div class="activity-list" id="activityList"></div></section>
+
+      <section class="view" id="view-editor">
+        <div class="page-head"><div><small class="eyebrow">DEVELOPER MODE</small><h1>IDE Workspace</h1><p>ویرایش فایل، ترمینال و اجرای واقعی دستورات Workspace.</p></div><div class="page-actions"><button class="btn ghost" data-quick-view="files">Files</button></div></div>
+        <div class="editor-shell">
+          <div class="editor-sidebar"><div class="editor-path"><span id="editorPathLabel">/</span><button id="editorUpBtn" class="mini-btn">..</button></div><div id="editorFileList" class="editor-file-list"></div><form id="editorNewFileForm" class="new-file-form"><input id="editorNewFileName" placeholder="فایل جدید..."><button>+</button></form></div>
+          <div class="editor-main"><div class="editor-toolbar"><span id="editorCurrentFile">فایلی انتخاب نشده</span><button id="editorSaveBtn" class="btn primary" disabled>ذخیره</button></div><textarea id="editorTextarea" disabled spellcheck="false" placeholder="یک فایل انتخاب کن..."></textarea><div class="terminal"><div class="terminal-top"><span>Terminal</span><small>workspace cwd · timeout 25s</small></div><div id="terminalOutput" class="terminal-output"></div><form id="terminalForm"><span>$</span><input id="terminalInput" placeholder="مثلاً npm test یا ls"><button>اجرا</button></form></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="page-head"><div><small class="eyebrow">PREFERENCES</small><h1>تنظیمات</h1><p>ظاهر و اتصال هوش مصنوعی را مدیریت کن.</p></div></div>
+        <div class="settings-grid">
+          <div class="glass-panel"><div class="panel-head"><strong>Provider</strong></div><label class="field"><span>ارائه‌دهنده</span><select id="providerSelect"><option value="openrouter">OpenRouter</option><option value="ollama">Ollama</option><option value="anthropic">Anthropic</option></select></label><label class="field"><span>Model</span><input id="modelInput" placeholder="openrouter/free"></label><p class="muted">کلیدها در مرورگر ذخیره نمی‌شوند؛ فقط Provider و Model در تنظیمات محلی این دستگاه نگهداری می‌شوند.</p></div>
+          <div class="glass-panel"><div class="panel-head"><strong>اتصال Backend</strong><span class="status-dot" id="apiDot"></span></div><label class="field"><span>آدرس API / سرور</span><input id="apiBaseInput" placeholder="http://127.0.0.1:3000" inputmode="url" autocomplete="off"></label><div class="row-actions"><button class="btn primary" id="saveApiBaseBtn">ذخیره و تست</button><button class="btn ghost" id="testApiBtn">تست اتصال</button></div><p id="apiInfo" class="muted">اگر اپ را با ToApp ساخته‌ای، این بخش مسیر اتصال WebView به Node.js را کنترل می‌کند.</p></div>
+          <div class="glass-panel"><div class="panel-head"><strong>Appearance</strong></div><div class="theme-switch"><button data-theme-choice="dark" class="active">تیره</button><button data-theme-choice="light">روشن</button></div><div class="setting-line"><span>Project فعال</span><strong id="activeProjectSettingsLabel">هیچ‌کدام</strong></div><button class="btn danger" id="clearActiveProjectBtn">پاک کردن پروژه فعال</button></div>
+          <div class="glass-panel"><div class="panel-head"><strong>اتصال OpenRouter</strong></div><p id="providerInfo" class="muted">در حال بررسی...</p><a class="btn ghost full" target="_blank" rel="noopener" href="https://openrouter.ai/">باز کردن OpenRouter</a></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="active" data-view="home"><span data-icon="grid"></span>خانه</button>
+      <button data-view="chat"><span data-icon="spark"></span>گفتگو</button>
+      <button data-view="studio"><span data-icon="layout"></span>Studio</button>
+      <button data-view="projects"><span data-icon="folder"></span>پروژه</button>
+      <button data-view="settings"><span data-icon="settings"></span>بیشتر</button>
+    </nav>
+  </div>
+</div>
+
+<div class="palette-backdrop hidden" id="paletteBackdrop">
+  <div class="command-palette" role="dialog" aria-modal="true">
+    <div class="palette-top"><span data-icon="search"></span><input id="paletteInput" placeholder="دستور یا صفحه را جستجو کن..."><kbd>Esc</kbd></div>
+    <div id="paletteResults" class="palette-results"></div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

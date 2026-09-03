@@ -1,0 +1,1 @@
+module.exports={name:'css_tokens',description:'استخراج custom propertyهای CSS از متن.',category:'طراحی',input_schema:{type:'object',properties:{css:{type:'string'}},required:['css']},permission:'green',handler:async({css})=>JSON.stringify([...String(css).matchAll(/(--[\w-]+)\s*:\s*([^;}]*)/g)].map(m=>({name:m[1],value:m[2].trim()})),null,2)};
