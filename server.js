@@ -377,7 +377,7 @@ app.get('/api/health', async (req, res) => {
 });
 
 
-const HOST = process.env.HOST || '0.0.0.0';
+const HOST = '0.0.0.0';
 app.listen(PORT, HOST, () => {
   console.log(`✅ Daniyar AI روی http://127.0.0.1:${PORT} در حال اجراست`);
   console.log(`🌐 WebView/LAN API: http://0.0.0.0:${PORT}`);
